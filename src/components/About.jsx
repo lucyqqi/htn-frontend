@@ -67,6 +67,24 @@ useEffect(() => {
 
   return (
     <>
+
+
+    <motion.div>
+        <p className={styles.sectionSubText}>ARE YOU READY?</p>
+        <h2 className={styles.sectionHeadText}>Canada's Largest Hackathon.</h2>
+      </motion.div>
+
+      <motion.p
+      
+        className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px] mx-auto text-center'
+      >
+        This September, join 1,000+ hackers from all around the world for a hackathon like no other. 
+        
+        Discover a community of like-minded hackers, connect with world-class mentors, and build because you love to build. 
+      </motion.p>
+
+      <br></br>
+
       {/* Existing component structure */}
       <motion.button
         onClick={handleSortByTimeClick}
