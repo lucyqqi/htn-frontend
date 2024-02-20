@@ -6,7 +6,7 @@ import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 
-const ServiceCard = ({ index, name, link, description, related_events, allEvents }) => {
+const EventCard = ({ index, name, link, description, related_events, allEvents }) => {
   // Function to get the name of the related events
   const getRelatedEventNames = () => {
     return related_events.map(eventId => {
@@ -77,14 +77,14 @@ const About = () => {
     
       <div className='mt-20 flex flex-wrap gap-10'>
         {events.map((event, index) => (
-          <ServiceCard
+          <EventCard
             link={event.public_url}
             key={event.id}
             index={index}
             name={event.name}
             description={event.description}
             related_events={event.related_events}
-            allEvents={events} // Pass all events data to ServiceCard
+            allEvents={events} 
           />
         ))}
       </div>
