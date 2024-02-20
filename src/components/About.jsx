@@ -24,7 +24,7 @@ const ServiceCard = ({ index, name, link, description, related_events, allEvents
       >
         <h3 style={{ fontSize: '30px' }} className={`${styles.heroHeadText}`}><a href={link} target="_blank" rel="noopener noreferrer">{name}</a></h3>
         <p>{description}</p>
-        <br></br>
+        <br />
         <p>Related Events: {getRelatedEventNames().join(', ')}</p>
       </div>
     </motion.div>
@@ -34,6 +34,7 @@ const ServiceCard = ({ index, name, link, description, related_events, allEvents
 const About = () => {
   const { isLoggedIn } = useLogin();
   const [events, setEvents] = useState([]);
+  const [sortedTime, setSortedTime] = useState(false); // State variable to track sorting by time
 
   useEffect(() => {
     fetch('https://api.hackthenorth.com/v3/events')
@@ -52,6 +53,7 @@ const About = () => {
   const sortByTime = () => {
     const sortedEvents = [...events].sort((a, b) => a.start_time - b.start_time);
     setEvents(sortedEvents);
+    setSortedTime(true); // Set sortedTime to true
   };
 
   return (
@@ -73,19 +75,9 @@ const About = () => {
         Check out our events:
       </motion.p>
 
-    <br></br>
+      <br />
+
     
-      <motion.button
-        onClick={sortByTime}
-        className="bg-cyanblue text-white rounded-md px-6 py-3 mb-4 block mx-auto"
-        style={{ backgroundColor: '#008b8b' }} // Dark cyan blue color
-      >
-        Sort By Time
-      </motion.button>
-
-
-
-
       <div className='mt-20 flex flex-wrap gap-10'>
         {events.map((event, index) => (
           <ServiceCard
