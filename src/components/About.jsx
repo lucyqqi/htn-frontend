@@ -103,6 +103,7 @@ useEffect(() => {
       description={event.description}
       related_events={event.related_events}
       allEvents={sorted} // Pass 'sorted' to ensure related events logic uses the correct order
+      
     />
   ))}
 </div>
