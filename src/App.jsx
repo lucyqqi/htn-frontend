@@ -2,7 +2,10 @@ import { BrowserRouter } from "react-router-dom";
 
 import { About, Feedbacks, Hero, Navbar, StarsCanvas } from "./components";
 
+
 const App = () => {
+
+
   return (
     <BrowserRouter>
       <div className='relative z-0 bg-primary'>
