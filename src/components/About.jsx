@@ -13,7 +13,7 @@ const ServiceCard = ({ index, name, link, description }) => (
     <div
       className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
     >
-      <h3><a href={link} target="_blank" rel="noopener noreferrer">{name}</a></h3>
+      <h3 style={{ fontSize: '30px' }} className={`${styles.heroHeadText}`}><a href={link} target="_blank" rel="noopener noreferrer">{name}</a></h3>
       <p>{description}</p>
     </div>
   </motion.div>
