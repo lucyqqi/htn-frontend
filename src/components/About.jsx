@@ -6,18 +6,30 @@ import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 
-const ServiceCard = ({ index, name, link, description }) => (
-  <motion.div
-    className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
-  >
-    <div
-      className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
+const ServiceCard = ({ index, name, link, description, related_events, allEvents }) => {
+  // Function to get the name of the related events
+  const getRelatedEventNames = () => {
+    return related_events.map(eventId => {
+      const relatedEvent = allEvents.find(event => event.id === eventId);
+      return relatedEvent ? relatedEvent.name : null;
+    }).filter(eventName => eventName !== null); // Filter out null values
+  };
+
+  return (
+    <motion.div
+      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
     >
-      <h3 style={{ fontSize: '30px' }} className={`${styles.heroHeadText}`}><a href={link} target="_blank" rel="noopener noreferrer">{name}</a></h3>
-      <p>{description}</p>
-    </div>
-  </motion.div>
-);
+      <div
+        className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
+      >
+        <h3 style={{ fontSize: '30px' }} className={`${styles.heroHeadText}`}><a href={link} target="_blank" rel="noopener noreferrer">{name}</a></h3>
+        <p>{description}</p>
+        <br></br>
+        <p>Related Events: {getRelatedEventNames().join(', ')}</p>
+      </div>
+    </motion.div>
+  );
+};
 
 const About = () => {
   const { isLoggedIn } = useLogin();
@@ -44,7 +56,6 @@ const About = () => {
       </motion.div>
 
       <motion.p
-   
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px] mx-auto text-center'
       >
         This September, join 1,000+ hackers from all around the world for a hackathon like no other. 
@@ -64,6 +75,8 @@ const About = () => {
             index={index}
             name={event.name}
             description={event.description}
+            related_events={event.related_events}
+            allEvents={events} // Pass all events data to ServiceCard
           />
         ))}
       </div>
