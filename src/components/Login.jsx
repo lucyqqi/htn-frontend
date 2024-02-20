@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLogin } from '../LoginContext.jsx'; // Make sure the path is correct
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+    const { isLoggedIn, login } = useLogin();
 
   // Hardcoded credentials
   const hardcodedUsername = 'admin';
   const hardcodedPassword = 'password';
 
+  
+  
   const handleLogin = (e) => {
     e.preventDefault();
     if (username === hardcodedUsername && password === hardcodedPassword) {
-      navigate('/'); // Navigate to home upon successful login
+      login();
+
+      navigate('/');
+      
+      
     } else {
       alert('Incorrect username or password');
     }

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
+import { LoginProvider, useLogin } from '../LoginContext.jsx'; // Note the .jsx extension
+
 
 const handleLinkClick = (navId, navTitle) => {
   if (navId === "#") {
@@ -21,6 +23,7 @@ const handleLinkClick = (navId, navTitle) => {
 
 
 const Navbar = () => {
+  const { isLoggedIn, logout } = useLogin();
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);

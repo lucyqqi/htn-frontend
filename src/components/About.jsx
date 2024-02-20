@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {useState, useEffect} from "react";
+import { LoginProvider, useLogin } from '../LoginContext.jsx'; // Note the .jsx extension
 
 import { styles } from "../styles";
 import { images } from "../constants";
@@ -24,6 +25,7 @@ const ServiceCard = ({ index, name, link, description }) => (
 
 
 const About = () => {
+  const { isLoggedIn, logout } = useLogin();
   const [events, setEvents] = useState([]);
 
   useEffect(() => {

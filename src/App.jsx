@@ -2,9 +2,13 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { About, Feedbacks, Hero, Navbar, StarsCanvas } from './components';
 import Login from './components/Login'; // Make sure this path is correct
+import { LoginProvider } from './LoginContext'; // Import the provider
 
 const App = () => {
+  
   return (
+    
+    <LoginProvider>
     <BrowserRouter>
       <div className='relative z-0 bg-primary'>
         <Navbar /> {/* Navbar is displayed on all pages */}
@@ -26,7 +30,12 @@ const App = () => {
         </Routes>
       </div>
     </BrowserRouter>
+    </LoginProvider>
+    
+    
   );
+
 }
+
 
 export default App;
