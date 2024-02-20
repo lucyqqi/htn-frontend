@@ -9,8 +9,8 @@ const Login = () => {
     const { isLoggedIn, login } = useLogin();
 
   // Hardcoded credentials
-  const hardcodedUsername = 'admin';
-  const hardcodedPassword = 'password';
+  const hardcodedUsername = 'htn';
+  const hardcodedPassword = 'plsacceptme<3';
 
   
   

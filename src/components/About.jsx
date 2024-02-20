@@ -50,10 +50,13 @@ const About = () => {
   }, [isLoggedIn]); // Depend on isLoggedIn to refetch when it changes
 
   // Function to sort events by start time
-  const sortByTime = () => {
-    const sortedEvents = [...events].sort((a, b) => a.start_time - b.start_time);
-    setEvents(sortedEvents);
-  };
+const sortByTime = () => {
+  const sortedEvents = [...events].sort((a, b) => {
+    return a.start_time - b.start_time;
+  });
+  setEvents(sortedEvents);
+};
+
 
   return (
     <>
