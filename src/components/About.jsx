@@ -48,6 +48,12 @@ const About = () => {
       });
   }, [isLoggedIn]); // Depend on isLoggedIn to refetch when it changes
 
+  // Function to sort events by start time
+  const sortByTime = () => {
+    const sortedEvents = [...events].sort((a, b) => a.start_time - b.start_time);
+    setEvents(sortedEvents);
+  };
+
   return (
     <>
       <motion.div>
@@ -66,6 +72,19 @@ const About = () => {
 
         Check out our events:
       </motion.p>
+
+    <br></br>
+    
+      <motion.button
+        onClick={sortByTime}
+        className="bg-cyanblue text-white rounded-md px-6 py-3 mb-4 block mx-auto"
+        style={{ backgroundColor: '#008b8b' }} // Dark cyan blue color
+      >
+        Sort By Time
+      </motion.button>
+
+
+
 
       <div className='mt-20 flex flex-wrap gap-10'>
         {events.map((event, index) => (

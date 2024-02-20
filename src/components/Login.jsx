@@ -45,7 +45,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           style={{ margin: '10px 0', padding: '10px', width: '100%' }}
         />
-        <button type="submit" style={{ background: 'lightblue', padding: '10px 20px', marginTop: '20px', borderRadius: '5px', border: 'none', cursor: 'pointer' }}>Login</button>
+        <button type="submit" style={{ background: '#008b8b', padding: '10px 20px', marginTop: '20px', borderRadius: '5px', border: 'none', cursor: 'pointer' }}>Login</button>
       </form>
     </div>
   );
