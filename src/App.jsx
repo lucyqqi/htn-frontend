@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { About, Feedbacks, Hero, Navbar, StarsCanvas } from './components';
 import Login from './components/Login'; // Make sure this path is correct
 import { LoginProvider } from './LoginContext'; // Import the provider
+import ScrollToTop from "react-scroll-to-top";
 
 const App = () => {
   
@@ -30,7 +31,9 @@ const App = () => {
         </Routes>
       </div>
     </BrowserRouter>
+    <ScrollToTop smooth />
     </LoginProvider>
+    
     
     
   );
