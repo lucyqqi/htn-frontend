@@ -4,11 +4,14 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
+// component for rendering 3D computer models
 const Computers = ({ isMobile }) => {
+  // load the 3D model
   const computer = useGLTF("./desktop_pc/scene.gltf");
 
   return (
     <mesh>
+      {/* lighting setup for the scene */}
       <hemisphereLight intensity={0.15} groundColor='black' />
       <spotLight
         position={[-20, 50, 10]}
@@ -19,6 +22,7 @@ const Computers = ({ isMobile }) => {
         shadow-mapSize={1024}
       />
       <pointLight intensity={1} />
+      {/* 3D model rendering with scaling and positioning adjustments based on device type */}
       <primitive
         object={computer.scene}
         scale={isMobile ? 0.7 : 0.75}
@@ -29,25 +33,23 @@ const Computers = ({ isMobile }) => {
   );
 };
 
+// canvas component to display the 3D computer model
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Add a listener for changes to the screen size
+    // listen for changes to screen size to adjust rendering for mobile devices
     const mediaQuery = window.matchMedia("(max-width: 500px)");
-
-    // Set the initial value of the `isMobile` state variable
     setIsMobile(mediaQuery.matches);
 
-    // Define a callback function to handle changes to the media query
+    // update isMobile state when screen size changes
     const handleMediaQueryChange = (event) => {
       setIsMobile(event.matches);
     };
 
-    // Add the callback function as a listener for changes to the media query
     mediaQuery.addEventListener("change", handleMediaQueryChange);
 
-    // Remove the listener when the component is unmounted
+    // clean up by removing the event listener on component unmount
     return () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
@@ -55,22 +57,24 @@ const ComputersCanvas = () => {
 
   return (
     <Canvas
-      frameloop='demand'
-      shadows
-      dpr={[1, 2]}
-      camera={{ position: [20, 3, 5], fov: 25 }}
-      gl={{ preserveDrawingBuffer: true }}
+      frameloop='demand' // optimize rendering performance
+      shadows // enable shadows for a more realistic appearance
+      dpr={[1, 2]} // adjust display pixel ratio for high-resolution screens
+      camera={{ position: [20, 3, 5], fov: 25 }} // camera setup
+      gl={{ preserveDrawingBuffer: true }} // preserve the drawing buffer for screenshots
     >
       <Suspense fallback={<CanvasLoader />}>
+        {/* use orbit controls to enable interactive camera movement, but disable zoom */}
         <OrbitControls
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
+        {/* render the computer model, passing in whether the device is mobile */}
         <Computers isMobile={isMobile} />
       </Suspense>
 
-      <Preload all />
+      <Preload all /> // preload assets for smoother rendering
     </Canvas>
   );
 };
