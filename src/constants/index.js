@@ -3,26 +3,10 @@ import {
     backend,
     creator,
     web,
-    javascript,
-    typescript,
-    html,
-    css,
-    reactjs,
-    redux,
-    tailwind,
-    nodejs,
-    mongodb,
-    git,
-    figma,
-    docker,
-    meta,
-    starbucks,
-    tesla,
-    shopify,
+   
     carrent,
     jobit,
-    tripguide,
-    threejs,
+    tripguide
   } from "../assets";
   
   export const navLinks = [
