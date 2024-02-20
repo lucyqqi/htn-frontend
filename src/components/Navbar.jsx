@@ -62,19 +62,18 @@ const Navbar = () => {
         </Link>
 
         <ul className='list-none hidden sm:flex flex-row gap-10'>
-        {navLinks.map((nav) => (
-          <li
-            key={nav.id}
-            className={`${
-              active === nav.title ? "text-white" : "text-secondary"
-            } hover:text-white text-[18px] font-medium cursor-pointer`}
-            onClick={() => handleLinkClick(nav.id, nav.title)}
-          >
-            {/* You can keep the href as is because the default behavior will be prevented */}
-            <a href={nav.id}>{nav.title}</a>
-          </li>
-        ))}
-      </ul>
+  {navLinks.map((nav) => (
+    <li
+      key={nav.title} // Use the title or a unique identifier as the key
+      className={`${active === nav.title ? "text-white" : "text-secondary"
+        } hover:text-white text-[18px] font-medium cursor-pointer`}
+      onClick={() => setActive(nav.title)}
+    >
+      {/* Update this part to use Link with the to prop */}
+      <Link to={nav.path}>{nav.title}</Link>
+    </li>
+  ))}
+</ul>
 
         <div className='sm:hidden flex flex-1 justify-end items-center'>
           <img

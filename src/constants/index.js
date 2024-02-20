@@ -9,12 +9,11 @@ import {
   
   export const navLinks = [
     {
-      id: "#",
+      path: "/", // Use 'path' instead of 'id' for clarity
       title: "Home",
     },
-
     {
-      id: "contact",
+      path: "/login", // Changed from 'id: "login"' to a path
       title: "Log In",
     },
   ];
