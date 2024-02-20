@@ -20,12 +20,24 @@ const EventCard = ({ name, link, description, related_events, allEvents, start_t
           <a href={link} target="_blank" rel="noopener noreferrer">{name}</a>
         </h3>
         <p>{description}</p>
-        <br />
+        <br></br>
         <p>Related Events: {getRelatedEventNames().join(', ')}</p>
+
+        {/* "View More" button */}
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="mt-4 bg-cyanblue text-white rounded-md px-6 py-3"
+          style={{ backgroundColor: '#301934' }}
+          onClick={() => {/* Define action on click here, e.g., navigate to another page */}}
+        >
+          View More
+        </motion.button>
       </div>
     </motion.div>
   );
 };
+
 
 const About = () => {
   const { isLoggedIn } = useLogin();
