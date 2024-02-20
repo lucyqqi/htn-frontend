@@ -75,8 +75,6 @@ const About = () => {
         Check out our events:
       </motion.p>
 
-      <br />
-
     
       <div className='mt-20 flex flex-wrap gap-10'>
         {events.map((event, index) => (
