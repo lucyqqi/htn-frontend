@@ -13,16 +13,18 @@ const Hero = () => {
       <div
         className={`absolute inset-0 top-[250px]`}
       >
+        <a href = '#home'>
 
 
         <div>
+          
           <h1 className={`${styles.heroHeadText} text-center text-transparent bg-clip-text bg-gradient-to-r from-lightBlue to-lightPink`}>
             HACK THE NORTH
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-center text-white-100`}>
             September 14-16, 2024 • In-Person Event • MLH Official Member
           </p>
-        </div>
+        </div></a>
       </div>
 
       <ComputersCanvas />

@@ -5,6 +5,21 @@ import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
 
+const handleLinkClick = (navId, navTitle) => {
+  if (navId === "#") {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  } else {
+    // If the link has a specific section to scroll to, handle that here
+  }
+  setActive(navTitle);
+  if (toggle) setToggle(false);
+};
+
+
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
@@ -47,18 +62,19 @@ const Navbar = () => {
         </Link>
 
         <ul className='list-none hidden sm:flex flex-row gap-10'>
-          {navLinks.map((nav) => (
-            <li
-              key={nav.id}
-              className={`${
-                active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(nav.title)}
-            >
-              <a href={`#${nav.id}`}>{nav.title}</a>
-            </li>
-          ))}
-        </ul>
+        {navLinks.map((nav) => (
+          <li
+            key={nav.id}
+            className={`${
+              active === nav.title ? "text-white" : "text-secondary"
+            } hover:text-white text-[18px] font-medium cursor-pointer`}
+            onClick={() => handleLinkClick(nav.id, nav.title)}
+          >
+            {/* You can keep the href as is because the default behavior will be prevented */}
+            <a href={nav.id}>{nav.title}</a>
+          </li>
+        ))}
+      </ul>
 
         <div className='sm:hidden flex flex-1 justify-end items-center'>
           <img
