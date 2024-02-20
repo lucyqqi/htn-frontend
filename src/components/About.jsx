@@ -34,7 +34,7 @@ const ServiceCard = ({ index, name, link, description, related_events, allEvents
 const About = () => {
   const { isLoggedIn } = useLogin();
   const [events, setEvents] = useState([]);
-  const [sortedTime, setSortedTime] = useState(false); // State variable to track sorting by time
+  const [sortedTime, setSortedTime] = useState([]); // State variable to track sorting by time
 
   useEffect(() => {
     fetch('https://api.hackthenorth.com/v3/events')
@@ -53,7 +53,6 @@ const About = () => {
   const sortByTime = () => {
     const sortedEvents = [...events].sort((a, b) => a.start_time - b.start_time);
     setEvents(sortedEvents);
-    setSortedTime(true); // Set sortedTime to true
   };
 
   return (
