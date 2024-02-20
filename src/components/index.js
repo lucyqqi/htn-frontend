@@ -5,7 +5,7 @@ import About from './About';
 
 
 import Feedbacks from './Feedbacks';
-import Contact from './Contact';
+
 
 export {
   Hero,
@@ -14,7 +14,7 @@ export {
 
 
   Feedbacks,
-  Contact,
+
   EarthCanvas, 
   BallCanvas, 
   ComputersCanvas, 
