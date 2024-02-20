@@ -1,11 +1,4 @@
-import {
-    mobile,
-    backend,
-    creator,
-    web,
-   
-   
-  } from "../assets";
+
   
   export const navLinks = [
     {
@@ -18,27 +11,6 @@ import {
     },
   ];
   
-  const images = [
-    {
-    
-      icon: web,
-    },
-    {
-     
-      icon: mobile,
-    },
-    {
-     
-      icon: backend,
-    },
-    {
-    
-      icon: creator,
-    },
-  ];
-  
-  
-
   const testimonials = [
     {
       testimonial:
@@ -67,4 +39,4 @@ import {
   ];
   
   
-export { images,  testimonials };
+export { testimonials };
