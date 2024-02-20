@@ -29,7 +29,7 @@ const Login = () => {
 
   return (
     <div style={{ paddingTop: '30px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-      <h1 style={{ fontSize: '30px', fontWeight: 'bold' }}>Login</h1>
+      <h1 style={{ fontSize: '40px', fontWeight: 'bold' }}>Login</h1>
       <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', maxWidth: '300px' }}>
         <input
           type="text"
