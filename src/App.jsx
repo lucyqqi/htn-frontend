@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { About, Feedbacks, Hero, Navbar} from './components';
-import Login from './components/Login'; // Make sure this path is correct
-import { LoginProvider } from './LoginContext'; // Import the provider
+import Login from './components/Login'; 
+import { LoginProvider } from './LoginContext'; 
 import ScrollToTop from "react-scroll-to-top";
+// just the routing of everything you see :)
 
 const App = () => {
   
@@ -12,9 +13,9 @@ const App = () => {
     <LoginProvider>
     <BrowserRouter>
       <div className='relative z-0 bg-primary'>
-        <Navbar /> {/* Navbar is displayed on all pages */}
-        <Routes> {/* Use Routes instead of Switch */}
-          <Route path="/login" element={<Login />} /> {/* Use element prop */}
+        <Navbar /> {/* navbar displayed on all pages */}
+        <Routes> 
+          <Route path="/login" element={<Login />} /> 
           <Route path="/" element={
             <>
               <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
@@ -27,7 +28,6 @@ const App = () => {
               </div>
             </>
           } />
-          {/* Define additional routes as needed */}
         </Routes>
       </div>
     </BrowserRouter>
