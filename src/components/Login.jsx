@@ -1,29 +1,28 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useLogin } from '../LoginContext.jsx'; // Make sure the path is correct
+import { useLogin } from '../LoginContext.jsx'; 
 
+// login component for user authentication
 const Login = () => {
+  // state for username and password
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-    const { isLoggedIn, login } = useLogin();
+  const { isLoggedIn, login } = useLogin();
 
-  // Hardcoded credentials
+  // hardcoded credentials <3
   const hardcodedUsername = 'htn';
   const hardcodedPassword = 'plsacceptme<3';
-
   
-  
+  // handle login form submission
   const handleLogin = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // prevent default form submission behavior
+    // check if username and password match hardcoded values
     if (username === hardcodedUsername && password === hardcodedPassword) {
-      login();
-
-      navigate('/');
-      
-      
+      login(); // call login function from context
+      navigate('/'); // navigate to homepage on successful login
     } else {
-      alert('Incorrect username or password');
+      alert('Incorrect username or password'); // show error message on failure
     }
   };
 
