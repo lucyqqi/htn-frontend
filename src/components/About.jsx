@@ -72,6 +72,7 @@ const About = () => {
         This September, join 1,000+ hackers from all around the world for a hackathon like no other.
         Discover a community of like-minded hackers, connect with world-class mentors, and build because you love to build.
       </motion.p>
+      <br></br>
 
       <motion.button
         onClick={handleSortByTimeClick}
@@ -80,6 +81,7 @@ const About = () => {
       >
         {sortByTime ? "Show Default Order" : "Sort By Time"}
       </motion.button>
+
 
    
       <div className='mt-20 flex flex-wrap gap-10'>
