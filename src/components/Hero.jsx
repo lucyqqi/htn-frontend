@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 const Hero = () => {
   return (
     <section className={`relative w-full h-screen mx-auto`}>
-      // positions the title and subtitle within the section
       <div className={`absolute inset-0 top-[250px]`}>
         <a href='#home'>
           <div>
