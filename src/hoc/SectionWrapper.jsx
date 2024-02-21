@@ -19,12 +19,10 @@ const StarWrapper = (Component, idName) =>
         viewport={{ once: true, amount: 0.25 }} // ensures animation plays once when 25% of the element is in view
         className={`${styles.padding} max-w-7xl mx-auto relative z-0`}
       >
-        // empty span with an id for anchor linking purposes
         <span className='hash-span' id={idName}>
           &nbsp;
         </span>
 
-        // renders the passed component
         <Component />
       </motion.section>
     );
