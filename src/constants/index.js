@@ -2,15 +2,16 @@
   
   export const navLinks = [
     {
-      path: "/", // Use 'path' instead of 'id' for clarity
+      path: "/", 
       title: "Home",
     },
     {
-      path: "/login", // Changed from 'id: "login"' to a path
+      path: "/login", // don't think this is really used 
       title: "Log In",
     },
   ];
   
+  // content for testimonial cards
   const testimonials = [
     {
       testimonial:

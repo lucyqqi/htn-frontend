@@ -6,16 +6,19 @@ import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
 import { useLogin } from '../LoginContext.jsx';
 
+// defines the navigation bar at the top of the page
 const Navbar = () => {
   const { isLoggedIn, logout } = useLogin();
   const navigate = useNavigate();
-  const [active, setActive] = useState("");
-  const [toggle, setToggle] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState(""); // tracks the active link
+  const [toggle, setToggle] = useState(false); // manages mobile menu toggle state
+  const [scrolled, setScrolled] = useState(false); // tracks if the page has been scrolled
 
+  // effect to handle the navbar's appearance on scroll
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
+      // navbar becomes solid after scrolling 100px
       if (scrollTop > 100) {
         setScrolled(true);
       } else {
@@ -24,12 +27,14 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
+    // cleanup to remove the event listener
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // handles user logout
   const handleLogoutClick = () => {
     logout();
-    navigate('/'); // Optionally navigate to a different page after logout
+    navigate('/'); // optionally navigate to a different page after logout
   };
 
   return (
@@ -42,21 +47,20 @@ const Navbar = () => {
         <ul className='list-none hidden sm:flex flex-row gap-10'>
           {navLinks.map((nav) => (
             <li key={nav.title} className={`${active === nav.title ? "text-white" : "text-secondary"} hover:text-white text-[18px] font-medium cursor-pointer`}>
-              {/* Ensure the link doesn't render for login/logout to manage it separately */}
+              {/* ensure the link doesn't render for login/logout to manage it separately */}
               {nav.title !== "Log In" && <Link to={nav.path}>{nav.title}</Link>}
             </li>
           ))}
-          {/* Here we manage the Log In/Log Out button */}
+          {/* manage the Log In/Log Out button based on login state */}
           <li className="text-white text-[18px] font-medium cursor-pointer">
             {isLoggedIn ? (
-              <div onClick={handleLogoutClick}>Log Out</div> // Using div or button depending on your style needs
+              <div onClick={handleLogoutClick}>Log Out</div> // using div or button depending on style needs
             ) : (
               <Link to="/login">Log In</Link>
             )}
           </li>
         </ul>
 
-        {/* Your existing code for the mobile menu and other navigation elements */}
       </div>
     </nav>
   );
