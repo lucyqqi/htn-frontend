@@ -3,7 +3,7 @@
 - **Username:** `htn`
 - **Password:** `plsacceptme<3`
 
-# Writeup 
+# Hack the North Frontend Challenge Writeup 
 
 ## Development Process and Planning
 
